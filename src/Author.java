@@ -1,29 +1,43 @@
-public class Author {
-    private int id;
-    private String nom;
-    private String prenom;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-    public int getId() {
+public class Author {
+    private final UUID id;
+    private String name;
+    private String firstname;
+    private List<Book> books;
+
+    public Author(String name, String firstname)
+    {
+        this.id = UUID.randomUUID();
+        this.name = name;
+        this.firstname = firstname;
+        this.books = new ArrayList<Book>();
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getName() {
+        return name;
     }
 
-    public String getNom() {
-        return nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void hasWritten(Book book)
+    {
+        books.add(book);
     }
 }
