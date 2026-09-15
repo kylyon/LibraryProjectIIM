@@ -4,7 +4,7 @@ public class Book {
     private float price;
     private Author author;
 
-    private Category Category;
+    private Category category;
     private int numberBook;
 
     public Book() {}
@@ -14,7 +14,7 @@ public class Book {
         this.title = title;
         this.price = price;
         this.author = author;
-        Category = category;
+        this.category = category;
         this.numberBook = numberBook;
     }
 
@@ -51,11 +51,11 @@ public class Book {
     }
 
     public Category getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(Category category) {
-        Category = category;
+        this.category = category;
     }
 
     public int getNumberBook() {
