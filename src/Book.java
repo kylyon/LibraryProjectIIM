@@ -3,7 +3,7 @@ public class Book {
     private String title;
     private float price;
     private Author author;
-
+    private DocumentState state;
     private Category category;
     private int numberBook;
 
@@ -64,5 +64,25 @@ public class Book {
 
     public void setNumberBook(int numberBook) {
         this.numberBook = numberBook;
+    }
+
+    private void setState(DocumentState state)
+    {
+        this.state = state;
+    }
+
+    public void rented()
+    {
+        setState(DocumentState.RENTED);
+    }
+
+    public void retrurned()
+    {
+        setState(DocumentState.FREE);
+    }
+
+    public void lost()
+    {
+        setState(DocumentState.LOST);
     }
 }
