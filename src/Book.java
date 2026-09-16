@@ -1,21 +1,21 @@
 public class Book {
+    public static int numberBook;
+    private static int CPT_BOOK = 1;
+
     private int id;
     private String title;
     private float price;
     private Author author;
     private DocumentState state;
-    private Category category;
-    private int numberBook;
+    private String category;
 
-    public Book() {}
-
-    public Book(int id, String title, float price, Author author, Category category, int numberBook) {
-        this.id = id;
+    public Book(String title, float price, Author author, String category) {
+        this.id = CPT_BOOK++;
         this.title = title;
         this.price = price;
         this.author = author;
         this.category = category;
-        this.numberBook = numberBook;
+        numberBook++;
     }
 
     public int getId() {
@@ -50,20 +50,12 @@ public class Book {
         this.author = author;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
-    }
-
-    public int getNumberBook() {
-        return numberBook;
-    }
-
-    public void setNumberBook(int numberBook) {
-        this.numberBook = numberBook;
     }
 
     private void setState(DocumentState state)
@@ -76,7 +68,7 @@ public class Book {
         setState(DocumentState.RENTED);
     }
 
-    public void retrurned()
+    public void returned()
     {
         setState(DocumentState.FREE);
     }
@@ -84,5 +76,11 @@ public class Book {
     public void lost()
     {
         setState(DocumentState.LOST);
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.title + " written by " + this.author.getName() + " - Price : " + this.price;
     }
 }
